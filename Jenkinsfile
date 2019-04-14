@@ -11,6 +11,11 @@ pipeline {
                 '''
             }
         }
+        stage('Post Build Notification') {
+            steps {
+                emailext body: 'Build Done.', subject: 'Jenkins Build Successfully', to: 'stevesui@yahoo.com'
+            }
+        }
     }
 }
 
