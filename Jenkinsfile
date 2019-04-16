@@ -19,8 +19,7 @@ pipeline {
                 sh 'echo "About to build jenkins-unit-test"'
                 sh 'pwd'
                 sh 'ls -lrt'
-                sh 'cd jenkins-unit-test'
-                sh "${env.M2_HOME}/bin/mvn clean compile test"
+                sh "cd jenkins-unit-test && ${env.M2_HOME}/bin/mvn clean compile test"
 
             }
         } 
