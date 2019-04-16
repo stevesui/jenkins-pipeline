@@ -15,6 +15,7 @@ pipeline {
             steps {
                 sh 'echo "About to build jenkins-unit-test"'
                 sh 'pwd'
+                sh 'ls -lrt'
             }
         } 
        
