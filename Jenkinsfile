@@ -20,7 +20,7 @@ pipeline {
                 sh 'pwd'
                 sh 'ls -lrt'
                 sh 'cd jenkins-unit-test'
-                sh "${maven}/bin/mvn clean compile test"
+                sh "${env.M2_HOME}/bin/mvn clean compile test"
 
             }
         } 
