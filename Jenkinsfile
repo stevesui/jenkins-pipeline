@@ -15,12 +15,13 @@ pipeline {
             }
         }
          stage(' Build Subproject and Running Test') {
+            def mvnHome = tool name: 'maven_3.6.0', type: 'maven'
             steps {
                 sh 'echo "About to build jenkins-unit-test"'
                 sh 'pwd'
                 sh 'ls -lrt'
                 sh 'cd jenkins-unit-test'
-                sh 'mvn clean compile test'
+                sh "${mvnHome}/bin/mvn clean compile test"
 
             }
         } 
