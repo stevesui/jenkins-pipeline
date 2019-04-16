@@ -13,8 +13,9 @@ pipeline {
             }
         }
          stage(' Build Subproject and Running Test') {
-            def mvnHome = tool name: 'maven_3.6.0', type: 'maven'
             steps {
+                def mvnHome = tool name: 'maven_3.6.0', type: 'maven'
+
                 sh 'echo "About to build jenkins-unit-test"'
                 sh 'pwd'
                 sh 'ls -lrt'
