@@ -11,11 +11,14 @@ pipeline {
                 '''
             }
         }
-         stage('Post Build Notification') {
+         stage(' Build Subproject and Running Test') {
             steps {
                 sh 'echo "About to build jenkins-unit-test"'
                 sh 'pwd'
                 sh 'ls -lrt'
+                sh 'cd jenkins-unit-test'
+                sh 'mvn clean compile test'
+
             }
         } 
        
