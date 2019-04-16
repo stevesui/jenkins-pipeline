@@ -20,14 +20,14 @@ pipeline {
                 sh 'pwd'
                 sh 'ls -lrt'
                 //sh "cd jenkins-unit-test && ${env.M2_HOME}/bin/mvn clean compile test"
-                sh "cd jenkins-unit-test && ${env2.M2_HOME}/bin/mvn clean compile test"
+                sh "cd jenkins-unit-test && ${env.M2_HOME}/bin/mvn clean compile test"
 
             }
         } 
        
     }
     post {
-        failure {
+        always {
             //emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
 
              emailext (
