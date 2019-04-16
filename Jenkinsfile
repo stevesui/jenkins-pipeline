@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    
+    tool {
+         maven 'maven_3.6.0'
+    }
     stages {
         stage('Build Stage') {
             steps {
@@ -14,13 +16,11 @@ pipeline {
         }
          stage(' Build Subproject and Running Test') {
             steps {
-                def mvnHome = tool name: 'maven_3.6.0', type: 'maven'
-
                 sh 'echo "About to build jenkins-unit-test"'
                 sh 'pwd'
                 sh 'ls -lrt'
                 sh 'cd jenkins-unit-test'
-                sh "${mvnHome}/bin/mvn clean compile test"
+                sh "${maven}/bin/mvn clean compile test"
 
             }
         } 
